@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<style>
+		
+		table {
+			
+			width: 900px;
+			margin-left: auto;
+			margin-right: auto;
+			border: 1px solid black;
+			
+		}
+		
+		th {
+			
+			border: 1px solid black;
+			background-color: beige;
+			
+		}
+		
+		td {
+			
+			border: 1px solid black;
+			background-color: orange;
+			
+		}
+	
+	</style>
+	
+</head>
+
+<body>
+	
+	<script>
+		
+		let uscita;
+		let genere;
+		let titolo = prompt("Inserisci il titolo del film da inserire (digitare STOP per concludere l'inserimento):");
+		
+		let azione = [];
+		let commedia = [];
+		let thriller = [];
+		let animazione = [];
+		let horror = [];
+		
+		let primaDEC = 0;
+		let secondaDEC = 0;
+		let terzaDEC = 0;
+		let quartaDEC = 0;
+		let quintaDEC = 0;
+		
+		while (titolo !== "STOP") {
+			
+			genere = prompt("Inserisci il genere del film; quelli presenti in catalogo sono (azione, commedia, thriller, animazione, horror):");
+			uscita = Number(prompt("Inserisci anno di uscita del film (dal 1981 al 2030):"));
+			
+			switch (true) {
+				
+				case uscita>= 1981 && uscita<=1990:
+					primaDEC++;
+					break;
+					
+				case uscita>= 1991 && uscita<=2000:
+					secondaDEC++;
+					break;
+					
+				case uscita>= 2001 && uscita<=2010:
+					terzaDEC++;
+					break;
+					
+				case uscita>= 2011 && uscita<=2020:
+					quartaDEC++;
+					break;
+				
+				case uscita>= 2021 && uscita<=2030:
+					quintaDEC++;
+					break;
+					
+				default:
+					alert("L'anno di uscita non rientra nello span di tempo considerato dal sito (1981-2030)!");
+					break;
+				
+			}
+			
+			/*if (uscita >= 1981 && uscita <= 1990) {
+				
+				primaDEC++;
+				
+			}	else if (uscita >= 1991 && uscita <= 2000) {
+				
+					secondaDEC++;
+				
+				}	else if (uscita >= 2001 && uscita <= 2010) {
+
+						terzaDEC++;
+
+					}	else if (uscita >= 2011 && uscita <= 2020) {
+
+							quartaDEC++;
+
+						}	else if (uscita >= 2021 && uscita <= 2030) {
+
+								quintaDEC++;
+
+							}	else {
+								
+									alert("L'anno di uscita non rientra nello span di tempo considerato dal sito (1981-2030)!");
+								
+								}*/
+			
+			switch (genere) {
+			
+				case "azione":
+					azione.push(titolo);
+					break;
+					
+				case "commedia":
+					commedia.push(titolo);
+					break;
+				
+				case "thriller":
+					thriller.push(titolo);
+					break;
+				
+				case "animazione":
+					animazione.push(titolo);
+					break;
+					
+				case "horror":
+					horror.push(titolo);
+					break;
+					
+				default:
+					alert("Film non inserito, categoria non disponibile");
+					break;
+			
+			}
+			
+			titolo = prompt("Inserisci il titolo del film da inserire (digitare STOP per concludere l'inserimento):");
+			
+		}
+		
+		
+		// prima lista
+		document.write("<h2>"+"Film di azione"+"</h2>");
+		
+		document.write("<ul>");
+		
+			for (i=0; i<azione.length; i++) {
+			
+				document.write("<li>"+azione[i]+"</li>");
+			
+			}
+			
+		document.write("</ul>"+"<br />");
+		document.write("<h4>"+"I film d'azione caricati sono: "+azione.length+"</h4>");
+		
+		// seconda lista
+		document.write("<h2>"+"Film commedia"+"</h2>");
+
+		document.write("<ul>");
+
+			for (i=0; i<commedia.length; i++) {
+			
+				document.write("<li>"+commedia[i]+"</li>");
+			
+			}
+			
+		document.write("</ul>"+"<br />");
+		document.write("<h4>"+"I film commedia caricati sono: "+commedia.length+"</h4>");
+		
+		// terza lista
+		document.write("<h2>"+"Film thriller"+"</h2>");
+
+		document.write("<ul>");
+
+			for (i=0; i<thriller.length; i++) {
+			
+				document.write("<li>"+thriller[i]+"</li>");
+			
+			}
+			
+		document.write("</ul>"+"<br />");
+		document.write("<h4>"+"I film thriller caricati sono: "+thriller.length+"</h4>");
+		
+		// quarta lista
+		document.write("<h2>"+"Film di animazione"+"</h2>");
+
+		document.write("<ul>");
+
+			for (i=0; i<animazione.length; i++) {
+			
+				document.write("<li>"+animazione[i]+"</li>");
+			
+			}
+			
+		document.write("</ul>"+"<br />");
+		document.write("<h4>"+"I film d'animazione caricati sono: "+animazione.length+"</h4>");
+		
+		// quinta lista
+		document.write("<h2>"+"Film horror"+"</h2>");
+
+		document.write("<ul>");
+
+			for (i=0; i<horror.length; i++) {
+			
+				document.write("<li>"+horror[i]+"</li>");
+			
+			}
+			
+		document.write("</ul>"+"<br />");
+		document.write("<h4>"+"I film horror caricati sono: "+horror.length+"</h4>");
+		
+		let totale = azione.length+commedia.length+thriller.length+animazione.length+horror.length;
+	
+	</script>
+	
+	<table>
+		
+		<script>
+			
+			document.write("<thead>");
+				document.write("<tr>"+"<th>"+"</th>"+"<th>"+"STATISTICHE"+"</th>"+"</tr>");
+			document.write("</thead>");
+			
+			document.write("<tr>");
+				document.write("<th>"+"Totale:"+"</th>"+"<td>"+totale+"</td>");
+			document.write("</tr>");
+			
+			document.write("<tr>");
+				document.write("<th>"+"% film azione:"+"</th>"+"<td>"+azione.length/totale*100+"%"+"</td>");
+			document.write("</tr>");
+			
+			document.write("<tr>");
+				document.write("<th>"+"% film commedia:"+"</th>"+"<td>"+commedia.length/totale*100+"%"+"</td>");
+			document.write("</tr>");
+			
+			document.write("<tr>");
+				document.write("<th>"+"% film thriller:"+"</th>"+"<td>"+thriller.length/totale*100+"%"+"</td>");
+			document.write("</tr>");
+			
+			document.write("<tr>");
+				document.write("<th>"+"% film animazione:"+"</th>"+"<td>"+animazione.length/totale*100+"%"+"</td>");
+			document.write("</tr>");
+			
+			document.write("<tr>");
+				document.write("<th>"+"% film horror:"+"</th>"+"<td>"+horror.length/totale*100+"%"+"</td>");
+			document.write("</tr>");
+			
+			document.write("<tr>");
+				document.write("<th>"+"Prima decade (1981-1990):"+"</th>"+"<td>"+primaDEC+"</td>");
+			document.write("</tr>");
+			
+			document.write("<tr>");
+				document.write("<th>"+"Seconda decade (1991-2000):"+"</th>"+"<td>"+secondaDEC+"</td>");
+			document.write("</tr>");
+			
+			document.write("<tr>");
+				document.write("<th>"+"Terza decade (2001-2010):"+"</th>"+"<td>"+terzaDEC+"</td>");
+			document.write("</tr>");
+			
+			document.write("<tr>");
+				document.write("<th>"+"Quarta decade (2011-2020):"+"</th>"+"<td>"+quartaDEC+"</td>");
+			document.write("</tr>");
+			
+			document.write("<tr>");
+				document.write("<th>"+"Quinta decade (2021-2030):"+"</th>"+"<td>"+quintaDEC+"</td>");
+			document.write("</tr>");
+		
+		</script>
+		
+	</table>
+
+</body>
+
+</html>
